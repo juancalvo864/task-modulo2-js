@@ -11,24 +11,20 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class=" navbar bg-light">
-                <div>
-                    <a class="navbar-brand ps-4" href="#">
-                        <img src="./assets/images/LogoAmazingEvents.png" alt="Bootstrap" width="150">
-                    </a>
-                </div>
-            </div>
+    <header class="navbar-dark bg-dark">
+        <div class="box-logo-header">
+            <img src="./assets/images/LogoAmazingEvents.png" alt="logo" class="logo">
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse position-absolute top-50 end-0 translate-middle-y" id="navbarNav">
+                <div class="collapse navbar-collapse " id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="upcoming.html">Upcoming Events</a>
@@ -49,29 +45,31 @@
     </header>
     <main>
         <p class="titulo">Contact</p>
-        <div class="form-contact">
-            <form class=" contact">
-                <label class="form-complete">
-                    First Name
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+        <div class="box-contact-form">
+            <div class="form-contact">
+                <form class=" contact">
+                    <label class="form-complete">
+                        First Name
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    </label>
+                    <label class="form-complete">
+                        Last Name
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    </label>
+                    <label class="form-complete">
+                        Email
+                        <input type="email" class="form-control" placeholder="Email" aria-label="Last name">
+                    </label>
+                </form>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Mensaje:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        placeholder="Escriba un mensaje"></textarea>
+                </div>
+                <label>
+                    <input type="submit" class="submit">
                 </label>
-                <label class="form-complete">
-                    Last Name
-                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                </label>
-                <label class="form-complete">
-                    Email
-                    <input type="email" class="form-control" placeholder="Email" aria-label="Last name">
-                </label>
-            </form>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Mensaje:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                    placeholder="Escriba un mensaje"></textarea>
             </div>
-            <label>
-                <input type="submit" class="submit">
-            </label>
         </div>
     </main>
     <footer>

@@ -5,16 +5,64 @@
 }
 
 main {
+    background-color: rgba(0, 0, 0, 0.865);
     min-height: 100vh;
+
 }
 
-main .titulo {
-    background-color: rgba(128, 128, 128, 0.272);
-    font-size: 3.5rem;
-    height: 20vh;
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.logo {
+    padding: 1rem;
+    width: 25%;
+}
+
+li a:hover {
+    background-color: rgb(120, 119, 117);
+    border: 1px solid black;
+}
+
+@media (max-width:768px) {
+    header {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .box-logo-header {
+        height: 4rem;
+        display: flex;
+        justify-content: end;
+    }
+
+    .logo {
+        width: 10rem;
+    }
+}
+
+/*----------------inicio Home---------------*/
+
+.titulo {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://live-production.wcms.abc-cdn.net.au/09686d45bb8999c3d2fbf92e2e6cfea5?impolicy=wcms_crop_resize&cropH=1856&cropW=3300&xPos=0&yPos=344&width=862&height=485);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-size: 4rem;
+    color: white;
+    font-weight: bolder;
+    height: 38vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.check {
+    color: white;
 }
 
 .box-cards {
@@ -53,9 +101,8 @@ main .titulo {
     align-content: flex-end;
 }
 
-li a:hover {
-    border: 1px solid black;
-}
+/*---------------------inicio contact-------------*/
+
 
 .contact {
     display: flex;
@@ -64,61 +111,116 @@ li a:hover {
     gap: 2rem;
 }
 
-.mb-3 {
-    width: 40vw;
-}
+
 
 .form-contact {
+    border-radius: 15px;
+    width: 28rem;
+    background-color: white;
     padding: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(255, 255, 255, 0.75);
+}
+
+.box-contact-form {
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+    display: flex;
+    justify-content: center;
 }
 
 .form-contact input {
-    width: 40vw;
+    width: 25rem;
+}
+
+.mb-3 {
+    width: 25rem;
 }
 
 .submit {
     width: 5rem !important;
 }
 
+/*---------------------fin Contact------------------------*/
+
+/*---------------------comienzo Stats---------------------*/
+
+.main-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabla-info-stats {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.encabezado-tabla {
+    padding-left: 1rem;
+    background-color: rgb(243, 211, 154);
+    color: black;
+    font-size: 2rem;
+    height: 10vh;
+}
+
 tr th {
     width: 30%;
-    border: 1px solid black;
+    border: 1px solid white;
+    color: white;
 }
 
 tr td {
-    border: 1px solid black;
+    border: 1px solid white;
+    color: white;
 }
 
 table {
     width: 90%;
 }
 
-.main-stats {
-    padding-top: 4rem;
+/*--------------------inicio Details--------------------*/
+
+.main-details {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-caption {
-    background-color: rgba(128, 128, 128, 0.132);
-    border: 1px solid black;
+.box-description-card {
+    background-color: white;
+    height: 70vh;
+    width: 60vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.75);
 }
 
-
-
-
-
+.img-description {
+    border-radius: 5px;
+    width: 50%;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+}
 
 /*-------------------inicio footer---------------------*/
 
 footer {
-    height: 10vh;
-    background-color: rgba(128, 128, 128, 0.587);
+    height: 8vh;
+    background-color: rgba(235, 227, 155, 0.877);
     display: flex;
     justify-content: space-between;
     align-items: center;
