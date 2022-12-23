@@ -15,11 +15,13 @@ header {
     justify-content: space-between;
 }
 
-
+.box-logo-header {
+    width: 10rem;
+}
 
 .logo {
     padding: 1rem;
-    width: 25%;
+    width: 100%;
 }
 
 li a:hover {
@@ -31,12 +33,6 @@ li a:hover {
     header {
         display: flex;
         flex-direction: row-reverse;
-    }
-
-    .box-logo-header {
-        height: 4rem;
-        display: flex;
-        justify-content: end;
     }
 
     .logo {
@@ -198,8 +194,8 @@ table {
 
 .box-description-card {
     background-color: white;
-    height: 70vh;
-    width: 60vw;
+    min-height: 70vh;
+    min-width: 70%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -210,10 +206,19 @@ table {
 
 .img-description {
     border-radius: 5px;
-    width: 50%;
+    width: 23rem;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
+}
+
+@media(max-width:767px) {
+    .box-description-card {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem
+    }
 }
 
 /*-------------------inicio footer---------------------*/
