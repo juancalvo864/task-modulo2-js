@@ -24,3 +24,114 @@ main .titulo {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.icono-contacto {
+    width: 3rem;
+}
+
+.card {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    gap: 1rem;
+}
+
+.img-card {
+    margin-top: 1rem;
+    width: 18rem;
+    height: 25vh;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.precio-compra {
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-end;
+}
+
+li a:hover {
+    border: 1px solid black;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mb-3 {
+    width: 40vw;
+}
+
+.form-contact {
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.form-contact input {
+    width: 40vw;
+}
+
+.submit {
+    width: 5rem !important;
+}
+
+tr th {
+    width: 30%;
+    border: 1px solid black;
+}
+
+tr td {
+    border: 1px solid black;
+}
+
+table {
+    width: 90%;
+}
+
+.main-stats {
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+caption {
+    background-color: rgba(128, 128, 128, 0.132);
+    border: 1px solid black;
+}
+
+
+
+
+
+
+/*-------------------inicio footer---------------------*/
+
+footer {
+    height: 10vh;
+    background-color: rgba(128, 128, 128, 0.587);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer h3 {
+    text-align: center;
+    width: 15rem;
+}
+
+footer div {
+    padding-left: 1rem;
+    width: 15rem;
+    display: flex;
+    justify-content: space-around;
+}
