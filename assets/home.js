@@ -3,7 +3,7 @@ let sectionHome = document.getElementById("cards-container")
 
 
 function templateCard(card, seccion) {
-    return seccion.innerHTML += `<article class="card">
+  return seccion.innerHTML += `<article class="card">
       <img src="${card.image} " class=" img-card" alt="${card.name}">
         <div class="card-body">
           <h5 class="card-title">${card.name} </h5>
@@ -19,15 +19,13 @@ function templateCard(card, seccion) {
 
 
 
-const cards = []
-
-function cargaDeCartas(lista, carta, seccion) {
-    for (let infoCard of lista.events) {
-        carta.push(templateCard(infoCard, seccion))
-    }
+function cargaDeCartas(lista, seccion) {
+  for (let infoCard of lista.events) {
+    templateCard(infoCard, seccion)
+  }
 
 }
-cargaDeCartas(data, cards, sectionHome)
+cargaDeCartas(data, sectionHome)
 
 
 

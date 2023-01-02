@@ -2,7 +2,7 @@ let sectionUpComing = document.getElementById("section-upcoming")
 
 
 function templateCard(card, seccion) {
-    return seccion.innerHTML += `<article class="card">
+  seccion.innerHTML += `<article class="card">
       <img src="${card.image} " class=" img-card" alt="${card.name}">
         <div class="card-body">
           <h5 class="card-title">${card.name} </h5>
@@ -18,16 +18,16 @@ function templateCard(card, seccion) {
 
 
 
-const cardsUpComing = []
 
-function cardsDate(list, futuro, seccion) {
-    for (let carta of list.events) {
-        if (list.currentDate > carta.date) {
-            futuro.push(templateCard(carta, seccion))
-        }
+
+function cardsDate(list, seccion) {
+  for (let carta of list.events) {
+    if (list.currentDate < carta.date) {
+      templateCard(carta, seccion)
     }
+  }
 
 }
 
 
-cardsDate(data, cardsUpComing, sectionUpComing)
+cardsDate(data, sectionUpComing)
