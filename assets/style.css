@@ -61,6 +61,12 @@ li a:hover {
     color: white;
 }
 
+.alert {
+    font-size: 4rem;
+    color: white !important;
+
+}
+
 .box-cards {
     padding-top: 5rem;
     padding-bottom: 8rem;
@@ -206,31 +212,72 @@ table {
 
 .box-description-card {
     background-color: white;
-    min-height: 70vh;
-    min-width: 70%;
+    min-height: 65vh;
+    width: 75%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
+    border-radius: 10px;
     box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.75);
     -webkit-box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.75);
     -moz-box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.75);
 }
 
+.box-description-card h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.pic-and-description {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+}
+
 .img-description {
     border-radius: 5px;
-    width: 23rem;
+    width: 35vw;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.37);
 }
 
-@media(max-width:767px) {
+.description-card {
+    width: 35%;
+}
+
+@media(min-width:1340px) {
+    .img-description {
+        border-radius: 5px;
+        width: 28vw;
+    }
+}
+
+@media(max-width:768px) {
     .box-description-card {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        width: 85vw;
         padding: 2rem;
+    }
+
+    .pic-and-description {
         display: flex;
         flex-direction: column;
-        gap: 2rem
     }
+
+    .description-card {
+        width: 75%;
+    }
+
+    .img-description {
+        border-radius: 5px;
+        width: 55vw;
+    }
+
 }
 
 /*-------------------inicio footer---------------------*/
