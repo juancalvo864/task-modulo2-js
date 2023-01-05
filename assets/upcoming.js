@@ -47,7 +47,6 @@ renderTemplate(loadcards(listUpComing(data)), sectionUpComing)
 
 /*---------------------check point / serch -----------------*/
 
-checkpoint = document.getElementById("checkpoint")
 
 
 

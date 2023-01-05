@@ -5,7 +5,9 @@
 }
 
 main {
-    background-color: rgba(0, 0, 0, 0.865);
+    /* background-color: rgba(0, 0, 0, 0.865); */
+    background: url(https://i.pinimg.com/736x/14/99/40/14994037681874402d2e414bd6ad0bca.jpg);
+    background-size: cover;
     min-height: 100vh;
 
 }
@@ -212,7 +214,7 @@ table {
 
 .box-description-card {
     background-color: white;
-    min-height: 65vh;
+    min-height: 70vh;
     width: 75%;
     display: flex;
     flex-direction: column;

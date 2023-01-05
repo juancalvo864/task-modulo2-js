@@ -4,7 +4,7 @@ let search = document.getElementById("searchBox")
 
 
 
-function listPast(list) {
+function NewListPast(list) {
   let listNew = []
   for (let carta of list.events) {
     if (list.currentDate > carta.date) {
@@ -24,7 +24,7 @@ function templateCard(card) {
               </div>
               <div class="precio-compra">
                 <p>Price : usd ${card.price}</p>
-                <a href="details.html" class="btn btn-primary">Details</a>
+                <a href="./details.html?id=${card._id}" class="btn btn-primary">Details</a>
               </div>
           </article>`
 }
@@ -45,10 +45,6 @@ renderTemplate(loadcards(listPast(data)), sectionPast)
 
 
 /*---------------------check point / serch -----------------*/
-
-checkpoint = document.getElementById("checkpoint")
-
-
 
 
 //funcion para filtrar por categoria
@@ -92,7 +88,6 @@ function filterCheck(clicks, listMovies) {
   }
 
 }
-
 
 check.addEventListener('change', filtroCruzado)
 

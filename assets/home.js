@@ -38,12 +38,12 @@ renderTemplate(cargaDeCartas(data.events), sectionHome)
 
 //funcion para filtrar por categoria
 function filterCategory(lista) {
-  const categoryMovie = lista.events.map(movie => movie.category);
-  return categoryMovie
+  const categoryEvents = lista.events.map(events => events.category);
+  return categoryEvents
 }
 
 
-const sinRepetidos = Array.from(new Set(filterCategory(data)))
+const noRepeat = Array.from(new Set(filterCategory(data)))
 
 //funcion para generar los check
 function generarCheck(categories) {
@@ -59,22 +59,22 @@ function generarCheck(categories) {
   return template
 }
 
-// inner para pasar los check a pantalla
-check.innerHTML += generarCheck(sinRepetidos)
+renderTemplate(generarCheck(noRepeat), check)
+
 
 
 let checkbuttons = document.querySelectorAll(".form-check-input")
 
 //funcion de filtro para el check
-function filterCheck(clicks, listMovies) {
+function filterCheck(checksInput, listEvents) {
   let listValue = [];
-  for (let click of clicks) {
+  for (let click of checksInput) {
     if (click.checked)
       listValue.push(click.value.toLowerCase())
   }
-  let filtered = listMovies.filter(movie => listValue.includes(movie.category.toLowerCase()));
+  let filtered = listEvents.filter(movie => listValue.includes(movie.category.toLowerCase()));
   if (filtered.length === 0) {
-    return listMovies
+    return listEvents
   } else {
     return filtered
   }
@@ -82,33 +82,34 @@ function filterCheck(clicks, listMovies) {
 }
 
 
-check.addEventListener('change', filtroCruzado)
+check.addEventListener('change', crossFilter)
 
 //funcion del search para filtrar por nombre de pelicula
-function searchMovies(inputBusqueda, listMovies) {
-  const filterMovies = listMovies.filter(movie => {
+function searchEvents(inputBusqueda, listEvents) {
+  const filterEvents = listEvents.filter(movie => {
     return movie.name.toLowerCase().startsWith(inputBusqueda.value.toLowerCase())
   })
 
-  return filterMovies
+  return filterEvents
 }
 
 
-search.addEventListener('input', filtroCruzado)
+search.addEventListener('input', crossFilter)
 
 
-function filtroCruzado(evento) {
+function crossFilter(evento) {
 
-  const filtradosPorBusqueda = searchMovies(search, data.events)
+  const filtradosPorBusqueda = searchEvents(search, data.events)
   const filtradosPorCheck = filterCheck(checkbuttons, filtradosPorBusqueda)
   if (filtradosPorCheck.length === 0) {
-    let alert = `<h2 class="alert">NO HAY COINCIDENCIAS</H2>`
+    let alert = `<h2 class="alert">WAS NOT FOUND</H2>`
     renderTemplate(alert, sectionHome)
 
   } else {
     renderTemplate(cargaDeCartas(filtradosPorCheck), sectionHome)
   }
 }
+
 
 
 function renderTemplate(template, ubicacion) {
