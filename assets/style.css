@@ -131,7 +131,7 @@ li a:hover {
 
 .form-contact {
     border-radius: 15px;
-    width: 28rem;
+    width: 25rem;
     background-color: white;
     padding: 5vh;
     display: flex;
@@ -151,15 +151,30 @@ li a:hover {
 }
 
 .form-contact input {
-    width: 25rem;
+    width: 23rem;
 }
 
 .mb-3 {
-    width: 25rem;
+    width: 23rem;
 }
 
 .submit {
     width: 5rem !important;
+}
+
+@media(max-width:424px) {
+    .form-contact input {
+        width: 18rem;
+    }
+
+    .mb-3 {
+        width: 18rem;
+    }
+
+    .form-contact {
+        width: 20rem;
+    }
+
 }
 
 /*---------------------fin Contact------------------------*/
