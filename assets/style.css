@@ -40,6 +40,8 @@ li a:hover {
     .logo {
         width: 10rem;
     }
+
+
 }
 
 /*----------------inicio Home---------------*/
@@ -61,6 +63,11 @@ li a:hover {
 
 .check {
     color: white;
+    font-size: 0.9rem;
+}
+
+#searchBox {
+    width: 15vw;
 }
 
 .alert {
@@ -114,6 +121,14 @@ li a:hover {
     padding-top: 1rem;
     font-size: 1.2rem;
     font-weight: bolder;
+}
+
+
+@media (max-width:768px) {
+    #searchBox {
+        width: 12rem;
+    }
+
 }
 
 

@@ -17,9 +17,10 @@ function templateCard(card) {
     </article>`
 }
 
-function cargaDeCartas(lista) {
+
+function loadcards(list) {
   let template = ""
-  for (let infoCard of lista) {
+  for (let infoCard of list) {
     template += templateCard(infoCard)
   }
   return template
@@ -42,36 +43,31 @@ function filterCategory(lista) {
   return categoryEvents
 }
 
-
 const noRepeat = Array.from(new Set(filterCategory(data)))
 
 //funcion para generar los check
 function generarCheck(categories) {
-  let template = ''
+  let checkbox = ''
   categories.forEach(opcion => {
-    template += `<div class="form-check form-check-inline">
+    checkbox += `<div class="form-check form-check-inline">
                 <label class="form-check-label" >
                 <input class="form-check-input inlineCheckbox1" type="checkbox"  value="${opcion}">
                 ${opcion}
                 </label>
                 </div>`
   });
-  return template
+  return checkbox
 }
 
 renderTemplate(generarCheck(noRepeat), check)
 
 
 
-let checkbuttons = document.querySelectorAll(".form-check-input")
+let checkbuttons = Array.from(document.querySelectorAll(".form-check-input"))
 
 //funcion de filtro para el check
 function filterCheck(checksInput, listEvents) {
-  let listValue = [];
-  for (let click of checksInput) {
-    if (click.checked)
-      listValue.push(click.value.toLowerCase())
-  }
+  let listValue = checksInput.filter(event => event.checked).map(click => click.value.toLowerCase())
   let filtered = listEvents.filter(movie => listValue.includes(movie.category.toLowerCase()));
   if (filtered.length === 0) {
     return listEvents
