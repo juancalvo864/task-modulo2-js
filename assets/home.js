@@ -18,7 +18,7 @@ function templateCard(card) {
 }
 
 
-function loadcards(list) {
+function loadCards(list) {
   let template = ""
   for (let infoCard of list) {
     template += templateCard(infoCard)
@@ -27,7 +27,7 @@ function loadcards(list) {
 
 }
 
-renderTemplate(cargaDeCartas(data.events), sectionHome)
+renderTemplate(loadCards(data.events), sectionHome)
 
 
 /*---------------------check point / serch -----------------*/
@@ -102,7 +102,7 @@ function crossFilter(evento) {
     renderTemplate(alert, sectionHome)
 
   } else {
-    renderTemplate(cargaDeCartas(filtradosPorCheck), sectionHome)
+    renderTemplate(loadCards(filtradosPorCheck), sectionHome)
   }
 }
 
