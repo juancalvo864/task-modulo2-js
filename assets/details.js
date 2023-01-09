@@ -7,10 +7,21 @@ console.log(id)
 
 let boxCardDetails = document.getElementById("box-card-details")
 
-let cardAssigned = data.events.find(card => card._id === id)
+let dataBase;
+fetch(`https://mindhub-xj03.onrender.com/api/amazing`)
+    .then(data => data.json())
+    .then(res => {
+        dataBase = res
+        let cardAssigned = dataBase.events.find(card => card._id === id)
+        printCard(cardAssigned, boxCardDetails)
+    })
+    .catch(err => console.log(err))
 
-function printCard(selectCard) {
-    boxCardDetails.innerHTML = ""
+
+
+
+function printCard(selectCard, section) {
+    section.innerHTML = ""
     let div = document.createElement("div")
     div.className = "box-description-card"
     div.innerHTML = `   <h2>${selectCard.name}</h2>
@@ -34,7 +45,7 @@ function printCard(selectCard) {
                             </ul>
                         </div>
                         </div> `
-    boxCardDetails.appendChild(div)
+    section.appendChild(div)
 }
 
-printCard(cardAssigned)
+

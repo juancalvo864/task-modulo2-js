@@ -4,15 +4,23 @@ let search = document.getElementById("searchBox")
 
 
 
-function listPast(list) {
-  let listNew = []
-  for (let carta of list.events) {
-    if (list.currentDate > carta.date) {
-      listNew.push(carta)
-    }
-  }
-  return (listNew)
-}
+
+
+let eventPast;
+fetch(`https://mindhub-xj03.onrender.com/api/amazing`)
+  .then(data => data.json())
+  .then(data => {
+    eventPast = data.events.filter(dato => data.currentDate > dato.date);
+    renderTemplate(loadcards(eventPast), sectionPast);
+    const noRepeat = Array.from(new Set(filterCategory(eventPast)));
+    renderTemplate(generarCheck(noRepeat), check);
+    search.addEventListener('input', crossFilter);
+    check.addEventListener('change', crossFilter);
+
+  })
+  .catch(err => console.log(err))
+
+
 
 
 function templateCard(card) {
@@ -41,7 +49,7 @@ function loadcards(list) {
 
 }
 
-renderTemplate(loadcards(listPast(data)), sectionPast)
+
 
 
 /*---------------------check point / serch -----------------*/
@@ -53,12 +61,12 @@ renderTemplate(loadcards(listPast(data)), sectionPast)
 
 //funcion para filtrar por categoria
 function filterCategory(lista) {
-  const categoryEvents = lista.events.map(events => events.category);
+  const categoryEvents = lista.map(events => events.category);
   return categoryEvents
 }
 
 
-const noRepeat = Array.from(new Set(filterCategory(data)))
+
 
 //funcion para generar los check
 function generarCheck(categories) {
@@ -74,15 +82,16 @@ function generarCheck(categories) {
   return checkbox
 }
 // inner para pasar los check a pantalla
-renderTemplate(generarCheck(noRepeat), check)
 
 
-let checkbuttons = Array.from(document.querySelectorAll(".form-check-input"))
+
+
 
 //funcion de filtro para el check
-function filterCheck(checksInput, listEvents) {
-  let listValue = checksInput.filter(event => event.checked).map(click => click.value.toLowerCase())
-  let filtered = listEvents.filter(movie => listValue.includes(movie.category.toLowerCase()));
+function filterCheck(listEvents) {
+  let checkbuttons = Array.from(document.querySelectorAll(".form-check-input"))
+  let listValue = checkbuttons.filter(event => event.checked).map(click => click.value.toLowerCase())
+  let filtered = listEvents.filter(event => listValue.includes(event.category.toLowerCase()));
   if (filtered.length === 0) {
     return listEvents
   } else {
@@ -93,25 +102,25 @@ function filterCheck(checksInput, listEvents) {
 
 
 
-check.addEventListener('change', crossFilter)
+
 
 //funcion del search para filtrar por nombre de pelicula
 function searchEvents(inputBusqueda, listEvents) {
-  const filterEvents = listEvents.filter(movie => {
-    return movie.name.toLowerCase().startsWith(inputBusqueda.value.toLowerCase())
+  const filterEvents = listEvents.filter(events => {
+    return events.name.toLowerCase().startsWith(inputBusqueda.value.toLowerCase())
   })
 
   return filterEvents
 }
 
 
-search.addEventListener('input', crossFilter)
+
 
 
 function crossFilter(evento) {
 
-  const filtradosPorBusqueda = searchEvents(search, data.events)
-  const filtradosPorCheck = filterCheck(checkbuttons, filtradosPorBusqueda)
+  const filtradosPorBusqueda = searchEvents(search, eventPast)
+  const filtradosPorCheck = filterCheck(filtradosPorBusqueda)
   if (filtradosPorCheck.length === 0) {
     let alert = `<h2 class="alert">WAS NOT FOUND</H2>`
     renderTemplate(alert, sectionPast)

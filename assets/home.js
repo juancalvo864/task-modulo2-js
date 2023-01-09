@@ -3,6 +3,24 @@ let check = document.getElementById("checkpoint")
 let search = document.getElementById("searchBox")
 
 
+let dataBase;
+fetch(`https://mindhub-xj03.onrender.com/api/amazing`)
+  .then(data => data.json())
+  .then(res => {
+    dataBase = res
+    renderTemplate(loadCards(dataBase.events), sectionHome)
+    const noRepeat = Array.from(new Set(filterCategory(dataBase)))
+    renderTemplate(generarCheck(noRepeat), check)
+    search.addEventListener('input', crossFilter)
+    check.addEventListener('change', crossFilter)
+
+  })
+  .catch(err => console.log(err))
+
+
+
+
+
 function templateCard(card) {
   return `<article class="card">
       <img src="${card.image} " class=" img-card" alt="${card.name}">
@@ -27,7 +45,7 @@ function loadCards(list) {
 
 }
 
-renderTemplate(loadCards(data.events), sectionHome)
+
 
 
 /*---------------------check point / serch -----------------*/
@@ -43,7 +61,8 @@ function filterCategory(lista) {
   return categoryEvents
 }
 
-const noRepeat = Array.from(new Set(filterCategory(data)))
+
+
 
 //funcion para generar los check
 function generarCheck(categories) {
@@ -59,26 +78,28 @@ function generarCheck(categories) {
   return checkbox
 }
 
-renderTemplate(generarCheck(noRepeat), check)
 
 
 
-let checkbuttons = Array.from(document.querySelectorAll(".form-check-input"))
+
+
 
 //funcion de filtro para el check
-function filterCheck(checksInput, listEvents) {
-  let listValue = checksInput.filter(event => event.checked).map(click => click.value.toLowerCase())
-  let filtered = listEvents.filter(movie => listValue.includes(movie.category.toLowerCase()));
+function filterCheck(listEvents) {
+  let checkbuttons = Array.from(document.querySelectorAll(".form-check-input"))
+  let listValue = checkbuttons.filter(event => event.checked).map(click => click.value.toLowerCase())
+  let filtered = listEvents.filter(event => listValue.includes(event.category.toLowerCase()));
   if (filtered.length === 0) {
     return listEvents
   } else {
+    console.log(listValue)
     return filtered
   }
 
 }
 
 
-check.addEventListener('change', crossFilter)
+
 
 //funcion del search para filtrar por nombre de pelicula
 function searchEvents(inputBusqueda, listEvents) {
@@ -90,13 +111,13 @@ function searchEvents(inputBusqueda, listEvents) {
 }
 
 
-search.addEventListener('input', crossFilter)
+
 
 
 function crossFilter(evento) {
 
-  const filtradosPorBusqueda = searchEvents(search, data.events)
-  const filtradosPorCheck = filterCheck(checkbuttons, filtradosPorBusqueda)
+  const filtradosPorBusqueda = searchEvents(search, dataBase.events)
+  const filtradosPorCheck = filterCheck(filtradosPorBusqueda)
   if (filtradosPorCheck.length === 0) {
     let alert = `<h2 class="alert">WAS NOT FOUND</H2>`
     renderTemplate(alert, sectionHome)
