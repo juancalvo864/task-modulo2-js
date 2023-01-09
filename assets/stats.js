@@ -74,7 +74,7 @@ function lowerPorcentage(array) {
 function createTable(objet1, objet2, objet3) {
     let rowTable = ""
     rowTable += `
-                    <td>${objet1.name}, whit porcentage: ${objet1.porcentage}%</td>
+        <td td > ${objet1.name}, whit porcentage: ${objet1.porcentage} %</td >
                     <td>${objet2.name}, with porcentage: ${objet2.porcentage}%</td>
                     <td>${objet3.name}, with capacity of: ${objet3.capacity}</td>
                 `
@@ -96,11 +96,11 @@ function past(list, calendar) {
 function createSecondThridTable(listEvents, container) {
     let rowTable = ""
     listEvents.forEach(template => {
-        rowTable += `<tr>
+        rowTable += `<tr tr >
         <td>${template.category}</td> 
         <td>U$S ${template.revenues}</td>
         <td>${template.porcentage}%</td>
-        </tr>
+        </tr >
         `
     })
     return renderTemplate(rowTable, container)
